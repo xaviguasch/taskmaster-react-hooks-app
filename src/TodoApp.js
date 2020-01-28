@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TodoList from './TodoList'
+import TodoForm from './TodoForm'
 
 const TodoApp = () => {
   const initialTodos = [
@@ -9,10 +10,15 @@ const TodoApp = () => {
   ]
 
   const [todos, setTodos] = useState(initialTodos)
+
+  const addTodo = newTodoText => {
+    setTodos([...todos, { id: 3, task: newTodoText, completed: false }])
+  }
+
   return (
     <div className='container mt-5'>
       <h1 className='display-5 text-center'>TODOS WITH HOOKS</h1>
-
+      <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} />
     </div>
   )
