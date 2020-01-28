@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
+import uuid from 'uuid/v4'
 
 const TodoApp = () => {
   const initialTodos = [
@@ -12,17 +13,33 @@ const TodoApp = () => {
   const [todos, setTodos] = useState(initialTodos)
 
   const addTodo = newTodoText => {
-    setTodos([...todos, { id: 3, task: newTodoText, completed: false }])
+    setTodos([...todos, { id: uuid(), task: newTodoText, completed: false }])
+  }
+
+  const removeTodo = todoId => {
+    const updatedTodos = todos.filter(todo => {
+      return todo.id !== todoId
+    })
+
+    setTodos(updatedTodos)
+  }
+
+  const toggleTodo = todoId => {
+    const updatedTodos = todos.map(todo => {
+      return todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+    })
+
+    setTodos(updatedTodos)
   }
 
   return (
     <div className='container mt-5 bg-secondary p-5'>
       <h1 className='display-5 text-center text-white'>TODOS WITH HOOKS</h1>
       <div className='row'>
-        <div className='col-6'>
-          <TodoList todos={todos} />
+        <div className='col-12 col-lg-6'>
+          <TodoList todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
         </div>
-        <div className='col-6'>
+        <div className='col-12 col-lg-6'>
           <TodoForm addTodo={addTodo} />
         </div>
       </div>
