@@ -1,15 +1,14 @@
 import React from 'react'
+import Todo from './Todo.js'
 
 const TodoList = ({ todos }) => {
   return (
     <div className='text-center mt-3'>
-      {todos.map(todo => {
-        return (
-          <p key={todo.id} className='lead'>
-            {todo.task}
-          </p>
-        )
-      })}
+      <ul className='list-group'>
+        {todos.map(todo => {
+          return <Todo key={todo.id} task={todo.task} completed={todo.completed} />
+        })}
+      </ul>
     </div>
   )
 }

@@ -5,8 +5,7 @@ const TodoForm = ({ addTodo }) => {
   const [value, handleChange, reset] = useInputState('')
 
   return (
-    <div className='text-center mt-3'>
-      <p className='lead'>{value}</p>
+    <div className='text-center my-3'>
       <form
         onSubmit={e => {
           e.preventDefault()
@@ -14,7 +13,23 @@ const TodoForm = ({ addTodo }) => {
           reset()
         }}
       >
-        <input type='text' value={value} onChange={handleChange} />
+        <div className='form-group'>
+          <label className='text-white' htmlFor='todo'>
+            Insert "todo" below:
+          </label>
+          <input
+            value={value}
+            onChange={handleChange}
+            type='text'
+            className='form-control'
+            id='todo'
+            aria-describedby='todo'
+          />
+        </div>
+
+        <button type='submit' className='btn btn-primary'>
+          Submit
+        </button>
       </form>
     </div>
   )

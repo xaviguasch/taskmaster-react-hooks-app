@@ -16,10 +16,16 @@ const TodoApp = () => {
   }
 
   return (
-    <div className='container mt-5'>
-      <h1 className='display-5 text-center'>TODOS WITH HOOKS</h1>
-      <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} />
+    <div className='container mt-5 bg-secondary p-5'>
+      <h1 className='display-5 text-center text-white'>TODOS WITH HOOKS</h1>
+      <div className='row'>
+        <div className='col-6'>
+          <TodoList todos={todos} />
+        </div>
+        <div className='col-6'>
+          <TodoForm addTodo={addTodo} />
+        </div>
+      </div>
     </div>
   )
 }
