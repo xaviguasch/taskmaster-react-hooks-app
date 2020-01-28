@@ -9,9 +9,7 @@ const TodoList = ({ todos, removeTodo, toggleTodo, editTodo }) => {
           return (
             <Todo
               key={todo.id}
-              task={todo.task}
-              completed={todo.completed}
-              id={todo.id}
+              {...todo}
               removeTodo={removeTodo}
               toggleTodo={toggleTodo}
               editTodo={editTodo}
