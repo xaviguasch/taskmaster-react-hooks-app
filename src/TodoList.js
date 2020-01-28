@@ -1,7 +1,7 @@
 import React from 'react'
 import Todo from './Todo.js'
 
-const TodoList = ({ todos, removeTodo, toggleTodo }) => {
+const TodoList = ({ todos, removeTodo, toggleTodo, editTodo }) => {
   return (
     <div className='text-center mt-3'>
       <ul className='list-group'>
@@ -14,6 +14,7 @@ const TodoList = ({ todos, removeTodo, toggleTodo }) => {
               id={todo.id}
               removeTodo={removeTodo}
               toggleTodo={toggleTodo}
+              editTodo={editTodo}
             />
           )
         })}
