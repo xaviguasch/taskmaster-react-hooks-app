@@ -5,7 +5,7 @@ const EditTodoForm = ({ editTodo, id, task, toggleEditForm }) => {
   const [value, handleChange, reset] = useInputState(task)
 
   return (
-    <div className='text-center'>
+    <div className='form-group mt-3'>
       <form
         onSubmit={e => {
           e.preventDefault()
@@ -21,6 +21,7 @@ const EditTodoForm = ({ editTodo, id, task, toggleEditForm }) => {
           id='edit-todo'
           value={value}
           aria-describedby='edit-todo'
+          autoFocus
         />
       </form>
     </div>
